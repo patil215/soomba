@@ -17,6 +17,9 @@ void loop() {
   //Continue looping until you get a complete signal received
   if (myReceiver.getResults()) {
     myDecoder.decode();           //Decode it
+    Serial.println("SIMPLE:\n");
+    myDecoder.dumpResults(false);  //Now print results. Use false for less detail
+    Serial.println("\n\n\n\nCOMPLEX:\n");
     myDecoder.dumpResults(true);  //Now print results. Use false for less detail
     myReceiver.enableIRIn();      //Restart receiver
   }

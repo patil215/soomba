@@ -1,0 +1,237 @@
+# DUMP OF A TON OF DOWN COMMANDS
+
+
+Ready to receive IR signals
+SIMPLE:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+
+
+
+
+COMPLEX:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+Raw samples(84): Gap:56482
+  Head: m2966  s3014
+0:m458 s550	1:m486 s1542		 2:m434 s1550	3:m482 s526		 
+4:m458 s1546	5:m486 s518		 6:m490 s546	7:m434 s546		 
+8:m462 s1546	9:m458 s550		 10:m458 s1546	11:m458 s1550		 
+12:m458 s550	13:m458 s546		 14:m458 s1546	15:m462 s1570		 
+
+16:m438 s546	17:m458 s550		 18:m462 s542	19:m462 s570		 
+20:m438 s546	21:m486 s526		 22:m458 s542	23:m462 s546		 
+24:m462 s546	25:m458 s550		 26:m458 s550	27:m462 s546		 
+28:m458 s546	29:m462 s542		 30:m486 s530	31:m454 s550		 
+
+32:m458 s550	33:m458 s546		 34:m462 s550	35:m454 s1550		 
+36:m458 s1546	37:m458 s550		 38:m458 s1546	39:m486 s1526		 
+40:m454
+Extent=58710
+Mark  min:434	 max:490
+Space min:518	 max:1570
+
+SIMPLE:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+
+
+
+
+COMPLEX:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+Raw samples(84): Gap:1398
+  Head: m2930  s3046
+0:m486 s522	1:m482 s1522		 2:m458 s1550	3:m458 s550		 
+4:m458 s1546	5:m458 s550		 6:m482 s526	7:m458 s570		 
+8:m438 s1546	9:m458 s550		 10:m458 s1570	11:m434 s1550		 
+12:m458 s550	13:m458 s550		 14:m482 s1522	15:m458 s1546		 
+
+16:m458 s550	17:m482 s526		 18:m458 s550	19:m482 s526		 
+20:m454 s550	21:m462 s546		 22:m458 s550	23:m458 s550		 
+24:m458 s570	25:m434 s550		 26:m486 s546	27:m434 s550		 
+28:m482 s522	29:m458 s550		 30:m458 s550	31:m458 s546		 
+
+32:m462 s470	33:m534 s550		 34:m462 s570	35:m450 s1534		 
+36:m458 s1550	37:m458 s546		 38:m458 s1550	39:m458 s1546		 
+40:m458
+Extent=58706
+Mark  min:434	 max:534
+Space min:470	 max:1570
+
+SIMPLE:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+
+
+
+
+COMPLEX:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+Raw samples(84): Gap:2490
+  Head: m2902  s3046
+0:m454 s550	1:m458 s1574		 2:m430 s1574	3:m434 s550		 
+4:m454 s1574	5:m438 s574		 6:m454 s530	7:m454 s574		 
+8:m430 s1574	9:m434 s574		 10:m434 s1574	11:m430 s1550		 
+12:m458 s574	13:m434 s574		 14:m434 s1546	15:m458 s1574		 
+
+16:m430 s578	17:m430 s578		 18:m430 s550	19:m458 s574		 
+20:m434 s574	21:m434 s574		 22:m434 s570	23:m434 s574		 
+24:m434 s574	25:m434 s550		 26:m454 s578	27:m430 s574		 
+28:m430 s554	29:m454 s578		 30:m430 s574	31:m462 s546		 
+
+32:m434 s574	33:m430 s578		 34:m434 s550	35:m454 s1574		 
+36:m434 s1574	37:m430 s574		 38:m434 s1574	39:m430 s1554		 
+40:m454
+Extent=58674
+Mark  min:430	 max:462
+Space min:530	 max:1574
+
+SIMPLE:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+
+
+
+
+COMPLEX:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+Raw samples(84): Gap:2458
+  Head: m2902  s3074
+0:m434 s574	1:m434 s1550		 2:m454 s1574	3:m434 s574		 
+4:m430 s1578	5:m430 s574		 6:m434 s574	7:m434 s546		 
+8:m458 s1574	9:m434 s574		 10:m458 s1522	11:m458 s1574		 
+12:m434 s550	13:m458 s570		 14:m434 s1574	15:m458 s1550		 
+
+16:m430 s550	17:m458 s574		 18:m434 s574	19:m430 s578		 
+20:m430 s574	21:m434 s574		 22:m434 s574	23:m434 s574		 
+24:m430 s578	25:m430 s550		 26:m458 s574	27:m434 s574		 
+28:m434 s574	29:m430 s574		 30:m434 s574	31:m434 s554		 
+
+32:m454 s574	33:m430 s574		 34:m434 s574	35:m434 s1550		 
+36:m454 s1578	37:m430 s574		 38:m434 s1574	39:m434 s1546		 
+40:m458
+Extent=58682
+Mark  min:430	 max:458
+Space min:546	 max:1578
+
+SIMPLE:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+
+
+
+
+COMPLEX:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+Raw samples(84): Gap:2446
+  Head: m2918  s3082
+0:m434 s570	1:m438 s1546		 2:m458 s1574	3:m434 s570		 
+4:m434 s1550	5:m458 s574		 6:m434 s570	7:m434 s554		 
+8:m442 s1586	9:m430 s574		 10:m438 s1570	11:m434 s1570		 
+12:m434 s550	13:m458 s550		 14:m482 s1546	15:m438 s1546		 
+
+16:m458 s550	17:m454 s574		 18:m434 s574	19:m474 s534		 
+20:m434 s574	21:m458 s526		 22:m454 s574	23:m434 s574		 
+24:m434 s550	25:m458 s550		 26:m454 s550	27:m458 s574		 
+28:m434 s574	29:m434 s574		 30:m430 s554	31:m458 s546		 
+
+32:m462 s546	33:m458 s550		 34:m458 s574	35:m430 s1550		 
+36:m458 s1574	37:m434 s546		 38:m458 s1550	39:m462 s1570		 
+40:m434
+Extent=58706
+Mark  min:430	 max:482
+Space min:526	 max:1586
+
+SIMPLE:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+
+
+
+
+COMPLEX:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+Raw samples(84): Gap:2470
+  Head: m2898  s3082
+0:m434 s574	1:m454 s1526		 2:m458 s1550	3:m454 s574		 
+4:m434 s1574	5:m430 s574		 6:m438 s570	7:m458 s530		 
+8:m454 s1570	9:m458 s530		 10:m454 s1550	11:m458 s1546		 
+12:m462 s546	13:m458 s574		 14:m434 s1570	15:m434 s1550		 
+
+16:m458 s570	17:m434 s554		 18:m454 s574	19:m438 s546		 
+20:m458 s550	21:m458 s550		 22:m478 s550	23:m462 s522		 
+24:m482 s526	25:m458 s574		 26:m434 s570	27:m434 s574		 
+28:m434 s550	29:m458 s574		 30:m434 s550	31:m454 s554		 
+
+32:m454 s550	33:m482 s550		 34:m434 s570	35:m438 s1546		 
+36:m482 s1546	37:m438 s570		 38:m438 s1570	39:m434 s1550		 
+40:m458
+Extent=58686
+Mark  min:430	 max:482
+Space min:522	 max:1574
+
+SIMPLE:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+
+
+
+
+COMPLEX:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+Raw samples(84): Gap:2414
+  Head: m2934  s3046
+0:m462 s546	1:m458 s1550		 2:m454 s1554	3:m454 s574		 
+4:m434 s1546	5:m462 s546		 6:m458 s574	7:m434 s574		 
+8:m434 s1546	9:m462 s546		 10:m482 s1526	11:m454 s1574		 
+12:m466 s542	13:m434 s574		 14:m434 s1550	15:m478 s1526		 
+
+16:m458 s574	17:m434 s570		 18:m438 s570	19:m438 s546		 
+20:m458 s550	21:m458 s574		 22:m434 s546	23:m454 s538		 
+24:m474 s550	25:m458 s550		 26:m458 s546	27:m462 s570		 
+28:m458 s526	29:m482 s550		 30:m434 s574	31:m434 s546		 
+
+32:m462 s570	33:m434 s474		 34:m534 s550	35:m458 s1546		 
+36:m458 s1550	37:m482 s522		 38:m462 s1550	39:m454 s1546		 
+40:m458
+Extent=58710
+Mark  min:434	 max:534
+Space min:474	 max:1574
+
+SIMPLE:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+
+
+
+
+COMPLEX:
+
+Decoded Unknown(0): Value:0 Adrs:0 (0 bits) 
+Raw samples(84): Gap:2458
+  Head: m2934  s3042
+0:m462 s546	1:m458 s1574		 2:m434 s1546	3:m458 s550		 
+4:m458 s1574	5:m434 s574		 6:m458 s546	7:m434 s574		 
+8:m462 s1518	9:m458 s574		 10:m434 s1550	11:m458 s1550		 
+12:m454 s554	13:m458 s546		 14:m458 s1550	15:m454 s1574		 
+
+16:m434 s574	17:m434 s570		 18:m434 s574	19:m458 s526		 
+20:m454 s554	21:m458 s570		 22:m438 s550	23:m458 s570		 
+24:m434 s550	25:m458 s574		 26:m434 s570	27:m438 s570		 
+28:m462 s522	29:m458 s550		 30:m482 s526	31:m482 s546		 
+
+32:m434 s574	33:m434 s550		 34:m458 s546	35:m462 s1546		 
+36:m458 s1574	37:m434 s550		 38:m454 s1574	39:m434 s1570		 
+40:m434
+Extent=58706
+Mark  min:434	 max:482
+Space min:522	 max:1574
+
+

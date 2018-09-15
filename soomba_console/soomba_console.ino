@@ -1,13 +1,22 @@
 #include "ir_def.h"
+#include "IRLibAll.h"
+#include <IRLibSendBase.h>    //We need the base code
+#include <IRLib_HashRaw.h>    //Only use raw sender
 
-#include <IRremote.h>
-IRsend irsend;
 typedef uint16_t* ir_code;
 const int KHZ = 38;
 const int BAUD_RATE = 9600;
 
+IRrecvPCI myReceiver(2);
+IRdecode myDecoder;
+IRsendRaw mySender;
+
 void setup() {
 	Serial.begin(BAUD_RATE);
+  
+  delay(2000); while (!Serial); //delay for Leonardo
+  myReceiver.enableIRIn(); // Start the receiver
+  Serial.println(F("Ready to receive IR signals"));
 }
 
 ir_code string2code(String command) {
@@ -25,19 +34,24 @@ ir_code string2code(String command) {
 }
 
 void loop() {
-	/* irsend.sendRaw(ir_down, 83, khz); */
-	/* delay(1000); */
-
 	if (Serial.available()) {
 		String command = Serial.readStringUntil('\n');
 		ir_code code = string2code(command);
 		if (code != NULL) {
 			Serial.print("Doing: ");
 			Serial.println(command);
-			irsend.sendRaw(code, CODE_SIZE, KHZ);
+      mySender.send(code, CODE_SIZE,KHZ);//Pass the buffer,length, optionally frequency
 		} else {
 			Serial.print("Don't know how to: ");
 			Serial.println(command);
 		}
 	}
+
+  // Continue looping until you get a complete signal received
+  if (myReceiver.getResults()) {
+    myDecoder.decode();           //Decode it
+    Serial.println("COMPLEX:");
+    myDecoder.dumpResults(true);  //Now print results. Use false for less detail
+    myReceiver.enableIRIn();      //Restart receiver
+  }
 }

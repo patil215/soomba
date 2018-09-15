@@ -1,16 +1,20 @@
 #include "ir_def.h"
 #include <IRLibSendBase.h>    //We need the base code
 #include <IRLib_HashRaw.h>    //Only use raw sender
+#include <Adafruit_NeoPixel.h>
+
 
 typedef uint16_t* ir_code;
 const int KHZ = 38;
 const int BAUD_RATE = 9600;
+const int EYES_PIN = 6;
 
-IRsendRaw sender;
+IRsendRaw sender; // Defaults to pin 3
+Adafruit_NeoPixel eyeStrip = Adafruit_NeoPixel(24, EYES_PIN, NEO_GRB + NEO_KHZ800);
 
 /* RECEIVING CODE
 #include "IRLibAll.h"
-IRrecvPCI myReceiver(2);
+IRrecvPCI myReceiver(2); // Defaults to pin 2
 IRdecode decoder;
 */
 
@@ -19,7 +23,13 @@ void setup() {
 	delay(2000); while (!Serial);
   
 	// receiver.enableIRIn(); // Start the receiver
+
+  eyeStrip.begin();
+  eyeStrip.show();
+  
+  // receiver.enableIRIn(); // Start the receiver
 	Serial.println("ready");
+
 }
 
 ir_code string2code(String command) {
@@ -71,12 +81,22 @@ void simpleTest() {
 	}
 }
 
+void cycle_eyes() {
+  for(int i=0; i< eyeStrip.numPixels(); i++) {
+    eyeStrip.setPixelColor(i, 21, 19, 23);
+  }
+  eyeStrip.show();
+}
+
 void loop() {
 	// simpleTest();
 
-	// Keep receiving commands
+  cycle_eyes();
+
+  // Keep receiving commands
 	if (Serial.available()) {
 		String command = Serial.readStringUntil('\n');
+    sendCommand(command.c_str());
 	}
 
 	/*

@@ -4,20 +4,23 @@ from comm import SoombaBot
 import contextlib
 import platform
 from time import sleep
-import keyboard
+import curses
 
-def main():
+#import keyboard
+
+def main(screen):
     with contextlib.closing(SoombaBot()) as soomba_bot:
+        sleep(5)
         while True:
-            if keyboard.is_pressed('w'):
+            key = screen.getkey()
+            if key == 'w': 
                 soomba_bot.execute('up')
-            elif keyboard.is_pressed('s'):
+            elif key == 's': 
                 soomba_bot.execute('down')
-            elif keyboard.is_pressed('a'):
+            elif key == 'a': 
                 soomba_bot.execute('left')
-            elif keyboard.is_pressed('d'):
+            elif key == 'd': 
                 soomba_bot.execute('right')
-            sleep(0.05)
 
 if __name__ == '__main__':
     if platform.system() == 'Windows':
@@ -26,4 +29,4 @@ if __name__ == '__main__':
         # have no way of debugging.
         import atexit
         atexit.register(lambda: input('Press enter to exit\n'))
-    main()
+    curses.wrapper(main)

@@ -88,9 +88,9 @@ void sendEyes(String command) {
 void sendCommand(char * command) {
 	ir_code code = string2code(command);
 	if (code != NULL) {
+		sender.send(code, CODE_SIZE, KHZ);
 		Serial.print("good ");
 		Serial.println(command);
-		sender.send(code, CODE_SIZE, KHZ);
 	} else {
 		Serial.print("bad ");
 		Serial.print("unknown_command_");

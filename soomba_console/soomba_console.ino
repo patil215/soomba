@@ -113,12 +113,14 @@ void sendCommand(char * command) {
     cm = (duration/2) / 29.1;
     inches = (duration/2) / 74; 
 
-    index += 1;
-    index %= 30;
-    if (index > 15) {
-      code = string2code("right");
-    } else if (index > 0) {
-      code = string2code("left");
+    if (inches < 20) {
+      index += 1;
+      index %= 30;
+      if (index > 15) {
+        code = string2code("right");
+      } else if (index > 0) {
+        code = string2code("left");
+      }
     }
 
   

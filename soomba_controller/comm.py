@@ -20,29 +20,26 @@ class SoombaBot(object):
                 port_name = default_port_name
             else:
                 for i, (port, desc, hwid) in enumerate(ports):
-                    print(f'{i:> 2d} {port:<10s} {desc:10<s} {hwid:10<s}')
+                    print('{i} {port} {desc:} {hwid}'.format(i=i, port=port, desc=desc, hwid=hwid))
                 choice = int(input())
                 port_name = ports[choice][0]
-        self._serial = serial.Serial(port_name, BAUD_RATE)
+        print(port_name)
+        self._serial = serial.Serial(port_name, BAUD_RATE, timeout=0)
 
     def close(self):
         self._serial.close()
 
     def execute(self, command):
         self._write_line(command)
-        resp = self._read_line().split(' ')
+        resp = self._read_line()
+        resp = resp.split(' ')
         if resp[0] == 'bad':
-            raise SoombaBotError(resp[1])
+            #raise SoombaBotError(resp[1])
+            pass
 
     def _write_line(self, line):
         self._serial.write(line.encode('ascii') + b'\n')
 
     def _read_line(self):
-        temp = b''
-        while True:
-            ch = self._serial.read()
-            if ch == '\n':
-                break
-            else:
-                temp += ch
-        return tmp.decode('ascii')
+        line = self._serial.readline()
+        return line.decode('ascii')

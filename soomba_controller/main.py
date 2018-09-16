@@ -3,11 +3,21 @@
 from comm import SoombaBot
 import contextlib
 import platform
+from time import sleep
+import keyboard
 
 def main():
     with contextlib.closing(SoombaBot()) as soomba_bot:
-        soomba_bot.execute('left')
-        soomba_bot.execute('poop')
+        while True:
+            if keyboard.is_pressed('w'):
+                soomba_bot.execute('up')
+            elif keyboard.is_pressed('s'):
+                soomba_bot.execute('down')
+            elif keyboard.is_pressed('a'):
+                soomba_bot.execute('left')
+            elif keyboard.is_pressed('d'):
+                soomba_bot.execute('right')
+            sleep(0.05)
 
 if __name__ == '__main__':
     if platform.system() == 'Windows':

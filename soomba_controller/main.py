@@ -2,15 +2,16 @@
 
 from comm import SoombaBot
 import contextlib
-import platform
 from time import sleep
-import flask
+from flask import Flask, request
+
 app = Flask(__name__)
+
+soomba_bot = SoombaBot()
+sleep(5)
 
 @app.route("/")
 def hello():
     command = request.args.get('command')
     soomba_bot.execute(command)
-
-if __name__ == '__main__':
-    main()
+    return "waddup"

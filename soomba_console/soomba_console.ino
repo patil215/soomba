@@ -8,9 +8,12 @@ typedef uint16_t* ir_code;
 const int KHZ = 38;
 const int BAUD_RATE = 9600;
 const int EYES_PIN = 6;
+const int BASE_PIN = 5;
+bool TURN_EYE_ON = false;
 
 IRsendRaw sender; // Defaults to pin 3
 Adafruit_NeoPixel eyeStrip = Adafruit_NeoPixel(24, EYES_PIN, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel baseStrip = Adafruit_NeoPixel(60, BASE_PIN, NEO_RGBW + NEO_KHZ800);
 
 /* RECEIVING CODE
 #include "IRLibAll.h"
@@ -26,6 +29,9 @@ void setup() {
 
   eyeStrip.begin();
   eyeStrip.show();
+
+  baseStrip.begin();
+  baseStrip.show();
   
   // receiver.enableIRIn(); // Start the receiver
 	Serial.println("ready");
@@ -46,6 +52,39 @@ ir_code string2code(String command) {
 	}
 }
 
+void sendEyes(String command) {
+  if (command.equals("up")) {
+    setLeftEye(0, 200, 0);
+    setRightEye(0, 200, 0);
+  } else if (command.equals("down")) {
+    setLeftEye(200, 200, 0);
+    setRightEye(200, 200, 0);
+  } else if (command.equals("left")) {
+    if (TURN_EYE_ON) {
+      setLeftEye(0xff,0x8c,00);
+      setRightEye(100,100,100);
+      TURN_EYE_ON = false;
+    } else {
+      setLeftEye(0,0,0);
+      setRightEye(100,100,100);
+      TURN_EYE_ON = true;
+    }
+  } else if (command.equals("right")) {
+    if (TURN_EYE_ON) {
+      setRightEye(0xff,0x8c,00);
+      setLeftEye(100,100,100);
+      TURN_EYE_ON = false;
+    } else {
+      setRightEye(0,0,0);
+      setLeftEye(100,100,100);
+      TURN_EYE_ON = true;
+    }
+  } else {
+    setLeftEye(50,50,50);
+    setRightEye(50, 50, 50);
+  }
+}
+
 void sendCommand(char * command) {
 	ir_code code = string2code(command);
 	if (code != NULL) {
@@ -61,42 +100,95 @@ void sendCommand(char * command) {
 }
 
 void simpleTest() {
-	while (true) {
-		for(int i = 0; i < 6; i++) {
-			sendCommand("up");
-			delay(200);
-		}
-		for(int i = 0; i < 2; i++) {
-			sendCommand("right");
-			delay(200);
-		}
-		for(int i = 0; i < 3; i++) {
-			sendCommand("up");
-			delay(200);
-		}
-		for(int i = 0; i < 6; i++) {
-			sendCommand("left");
-			delay(200);
-		}
-	}
+  while (true) {
+    for(int i = 0; i < 6; i++) {
+      sendCommand("up");
+      sendEyes("up");
+      delay(200);
+    }
+    for(int i = 0; i < 10; i++) {
+      sendCommand("right");
+      sendEyes("right");
+      delay(200);
+    }
+    for(int i = 0; i < 6; i++) {
+      sendCommand("down");
+      sendEyes("down");
+      delay(200);
+    }
+    for(int i = 0; i < 10; i++) {
+      sendCommand("left");
+      sendEyes("left");
+      delay(200);
+    }
+    rainbowCycle();
+    delay(1000);
+  }
 }
 
-void cycle_eyes() {
-  for(int i=0; i< eyeStrip.numPixels(); i++) {
-    eyeStrip.setPixelColor(i, 21, 19, 23);
+void rainbowCycle() {
+  uint16_t i, j;
+
+  for(j=0; j<256*5; j++) { // 5 cycles of all colors on wheel
+    for(i=0; i< 12; i++) {
+      eyeStrip.setPixelColor(i, Wheel(((i * 256 / 12) + j) & 255));
+    }
+    eyeStrip.show();
+  }
+}
+uint32_t Wheel(byte WheelPos) {
+  WheelPos = 255 - WheelPos;
+  if(WheelPos < 85) {
+    return eyeStrip.Color(255 - WheelPos * 3, 0, WheelPos * 3);
+  }
+  if(WheelPos < 170) {
+    WheelPos -= 85;
+    return eyeStrip.Color(0, WheelPos * 3, 255 - WheelPos * 3);
+  }
+  WheelPos -= 170;
+  return eyeStrip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
+}
+
+void setLeftEye(int r, int g, int b) {
+  for(int i=0; i< 12; i++) {
+    eyeStrip.setPixelColor(i, r, g, b);
+  }
+  for (int i = 0; i < 15; i++) {
+    baseStrip.setPixelColor(i, g, r, b);
+  }
+  for (int i = 45; i < 60; i++) {
+    baseStrip.setPixelColor(i, g, r, b);
   }
   eyeStrip.show();
+  baseStrip.show();
 }
 
-void loop() {
-	// simpleTest();
+void setRightEye(int r, int g, int b) {
+  for(int i = 12; i< 24; i++) {
+    eyeStrip.setPixelColor(i, r, g, b);
+  }
+  for (int i=15; i < 45; i++) {
+    baseStrip.setPixelColor(i, g, r, b);
+  }
+  eyeStrip.show();
+  baseStrip.show();
+}
+//void cycle_eyes() {
+//  for(int i=0; i< eyeStrip.numPixels(); i++) {
+//    eyeStrip.setPixelColor(i, 21, 19, 23);
+//  }
+//  eyeStrip.show();
+//}
 
-  cycle_eyes();
+void loop() {
+//   simpleTest();
+
 
   // Keep receiving commands
 	if (Serial.available()) {
 		String command = Serial.readStringUntil('\n');
     sendCommand(command.c_str());
+    sendEyes(command.c_str());
 	}
 
 	/*
